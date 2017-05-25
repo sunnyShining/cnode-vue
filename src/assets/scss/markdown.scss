@@ -1,0 +1,70 @@
+.markdown-text img {
+    width: auto\9;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+.markdown-text h1{
+    font-size: .64rem;
+    padding-top: .6rem;
+    line-height: .84rem;
+    border-bottom: 1px solid #ccc;
+    font-weight: 900;
+}
+.markdown-text a{
+    color: #0088CC;
+}
+.markdown-text p{
+    font-size: .3rem;
+    line-height: .54rem;
+    overflow: auto;
+    padding-top: .3rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.markdown-text h2{
+    font-size: .52rem;
+    padding-top: .6rem;
+    line-height: .80rem;
+    border-bottom: 1px solid #ccc;
+    font-weight: 900;
+    margin-bottom: .28rem;
+}
+.markdown-text h3{
+    font-size: .48rem;
+    padding-top: .6rem;
+    line-height: .80rem;
+    border-bottom: 1px solid #ccc;
+    font-weight: 900;
+    margin-bottom: .28rem;
+}
+
+.markdown-text blockquote{
+    padding: 0 0 0 .3rem;
+    margin: 0 0 .4rem;
+    border-left: .1rem solid #eee;
+    &:before{
+        content: "";
+    }
+    &:after{
+        content: "";
+    }
+}
+.markdown-text ol, .markdown-text ul {
+    padding: 0;
+    margin: 0 0 .20rem .5rem;
+}
+.markdown-text li{
+    line-height: .56rem;
+    display: list-item;
+    list-style: initial;
+    font-size: .28rem;
+}
+.markdown-text code{
+    background-color: #fcfafa;
+    color: #000;
+}
