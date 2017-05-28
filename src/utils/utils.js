@@ -5,10 +5,12 @@
 */
 
 import axios from 'axios';
+import Loading from '../components/loading/index';
 
 //响应拦截（一般拦截登录，还有loading等）
 axios.interceptors.response.use(function(response) {
     // Do something with response data
+    Loading.close();
     return response;
 }, function(error) {
     // Do something with response error 
@@ -19,6 +21,7 @@ export default {
 
     http: {
         request(options, cb) {
+            Loading.open();
             if (!options.headers) {
                 options.headers = {}
             }
