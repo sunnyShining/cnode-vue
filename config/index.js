@@ -1,59 +1,46 @@
-// see http://vuejs-templates.github.io/webpack for documentation.
-var path = require('path')
+/*
+* created by jmxb on 2017/05/28
+* 开心每一天
+* 工具类函数
+*/
+
+const path = require('path')
 
 module.exports = {
     prd: {
         env: require('./prd.env'),
-        index: path.resolve(__dirname, '../dist/prd/online_risk/index.html'),
-        assetsRoot: path.resolve(__dirname, '../dist/prd/online_risk'),
-        zipName: 'online_risk',
+        index: path.resolve(__dirname, '../dist/prd/cnode_vue/index.html'),
+        assetsRoot: path.resolve(__dirname, '../dist/prd/cnode_vue'),
+        zipName: 'cnode_vue',
+        folderName: 'cnode_vue',
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
-        productionSourceMap: true,
-        // Gzip off by default as many popular static hosts such as
-        // Surge or Netlify already gzip all static assets for you.
-        // Before setting to `true`, make sure to:
-        // npm install --save-dev compression-webpack-plugin
+        productionSourceMap: false,
         productionGzip: false,
         productionGzipExtensions: ['js', 'css'],
-        // Run the build command with an extra argument to
-        // View the bundle analyzer report after build finishes:
-        // `npm run build --report`
-        // Set to `true` or `false` to always turn it on or off
-        bundleAnalyzerReport: process.env.npm_config_report
+        bundleAnalyzerReport: false//打包的报告，默认为false
     },
     stg: {
-        env: require('./stg.env'),
-        index: path.resolve(__dirname, '../dist/stg/online_risk/index.html'),
-        assetsRoot: path.resolve(__dirname, '../dist/stg/online_risk'),
-        zipName: 'online_risk',
-        assetsSubDirectory: 'static',
-        assetsPublicPath: '/',
-        stagingSourceMap: true,
-        // Gzip off by default as many popular static hosts such as
-        // Surge or Netlify already gzip all static assets for you.
-        // Before setting to `true`, make sure to:
-        // npm install --save-dev compression-webpack-plugin
-        stagingGzip: false,
-        stagingGzipExtensions: ['js', 'css'],
-        // Run the build command with an extra argument to
-        // View the bundle analyzer report after build finishes:
-        // `npm run build --report`
-        // Set to `true` or `false` to always turn it on or off
-        bundleAnalyzerReport: process.env.npm_config_report
+        env: require('./stg.env'),//环境
+        index: path.resolve(__dirname, '../dist/stg/cnode_vue/index.html'),//打包html地址
+        assetsRoot: path.resolve(__dirname, '../dist/stg/cnode_vue'),//打包地址
+        zipName: 'cnode_vue',//zip包的名称
+        folderName: 'cnode_vue',//打包文件夹名称 index和assetsRoot要同步更改
+        assetsSubDirectory: 'static',//js、css等文件打包放到哪个文件下
+        assetsPublicPath: '/',//打包时注入html路径（根据你上传地址修改）
+        stagingSourceMap: false,//是否使用SourceMap（默认不使用）
+        stagingGzip: false,//是否使用gzip
+        stagingGzipExtensions: ['js', 'css'],//使用gzip的后缀文件
+        bundleAnalyzerReport: false//打包分析报告
     },
     dev: {
-        env: require('./dev.env'),
-        port: 9997,
-        autoOpenBrowser: true,
-        assetsSubDirectory: 'static',
+        env: require('./dev.env'),//环境
+        port: 9997,//开发环境下默认端口号
+        autoOpenBrowser: true,//开发环境是否打开浏览器（默认打开吧）
+        assetsSubDirectory: 'static',//开发环境下打包js和css等文件放在那个文件下
         assetsPublicPath: '/',
-        proxyTable: {},
-        // CSS Sourcemaps off by default because relative paths are "buggy"
-        // with this option, according to the CSS-Loader README
-        // (https://github.com/webpack/css-loader#sourcemaps)
-        // In our experience, they generally work as expected,
-        // just be aware of this issue when enabling this option.
-        cssSourceMap: false
+        devlopmentUrl: '/',//开发环境地址，根据自己取舍
+        // proxyTable: {},//代理接口（有mock数据，不使用）
+        cssSourceMap: false//cssSourceMap，不使用
     }
 }

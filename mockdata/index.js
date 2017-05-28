@@ -15,7 +15,7 @@ let routers = [];
 
 const errjson = {"responseCode":"901001","responseMsg":"服务器出错了"};
 
-let configRouter = (filename, method, fullpath, readpath) => {
+let configRouter = (filename, fullpath, readpath) => {
     router.all(fullpath,function(req,res){
         let file = fs.readFile(readpath,'utf8',function(err,data){
             if(err) {
@@ -30,10 +30,9 @@ let configRouter = (filename, method, fullpath, readpath) => {
 for(let i=0;i<config.length;i++){
     let obj;
     let filename = config[i]['name'];
-    let method = config[i]['method'] || 'get';
     let fullpath = config[i]['path'];
     let readpath = path.join(__dirname,'./api/'+filename+'.json');
-    configRouter(filename, method, fullpath, readpath)
+    configRouter(filename, fullpath, readpath)
 }
 
 

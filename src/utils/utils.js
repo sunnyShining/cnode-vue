@@ -1,8 +1,12 @@
-//工具类函数
-import Vue from 'vue';
+/*
+* created by jmxb on 2017/05/28
+* 开心每一天
+* 工具类函数
+*/
+
 import axios from 'axios';
 
-//拦截
+//响应拦截（一般拦截登录，还有loading等）
 axios.interceptors.response.use(function(response) {
     // Do something with response data
     return response;
@@ -20,7 +24,8 @@ export default {
             }
             if (options.method === 'GET' || options.method === 'get') {
                 axios.get(options.url, {
-                    params: options.qs
+                    params: options.qs,
+                    headers: options.headers
                 }).then((res) => {
                     if (res.status == 200) {
                         cb(res.data)
@@ -33,7 +38,10 @@ export default {
             } else if (options.method === 'POST' || options.method === 'post') {
                 axios.post(options.url, {
                         ...options.qs
-                    }).then((res) => {
+                    },{
+                        headers: options.headers
+                    }
+                    ).then((res) => {
                         if (res.status == 200) {
                             cb(res.data);
                         } else {

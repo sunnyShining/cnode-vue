@@ -24,6 +24,7 @@ const index = NODE_ENV === 'production'? config.prd.index: config.stg.index
 const useGzip = NODE_ENV === 'production'? config.prd.productionGzip: config.stg.stagingGzip
 const useGzipExtensions = NODE_ENV === 'production'? config.prd.productionGzipExtensions: config.stg.stagingGzipExtensions
 const bundleAnalyzerReport = NODE_ENV === 'production'? config.prd.bundleAnalyzerReport: config.stg.bundleAnalyzerReport
+const folderName = NODE_ENV === 'production'? config.prd.folderName: config.stg.folderName
 
 const zipName = NODE_ENV === 'production'? config.prd.zipName: config.stg.zipName
 
@@ -116,11 +117,13 @@ const webpackConfig = merge(baseWebpackConfig, {
                     console.log(stats.compilation.errors); 
                     process.exit(1); 
                 }
-                let tarName = '${zipName}_${buildTime}.zip'
+                let outputZipfileName = `${zipName}_${buildTime}.zip`
+                console.log(outputZipfileName);
                 console.log(`/dist/${nowEnv}`)
-                shelljs.cd(`dist/${nowEnv}`)
+                shelljs.cd(`dist/${nowEnv}/${folderName}`)
                 shelljs.exec('ls')
-                shelljs.exec(`zip -r ${tarName} online_risk`)
+                shelljs.exec(`zip -r ../${outputZipfileName} ./`)
+                shelljs.cd('..')
                 shelljs.cd('..')
                 shelljs.cd('..')
             })
