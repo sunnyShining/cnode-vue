@@ -81,7 +81,7 @@ http://router.vuejs.org/zh-cn/index.html
 
 可自己加vuex，不过我发现加上vuex体积增大不少，可自己权衡
 
-##效果图
+## 效果图
 
 ![首页](static/index.png)
 ![详情](static/detail.png)
