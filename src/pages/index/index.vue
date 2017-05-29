@@ -1,7 +1,7 @@
 <template>
     <div class="index">
         <div class="index-tab">
-            <div class="active">全部</div>
+            <div class="active" @click="test">全部</div>
             <div class="disactive">精华</div>
             <div class="disactive">分享</div>
             <div class="disactive">问答</div>
@@ -31,6 +31,7 @@
 <script>
 import services from '../../api/services';
 import filters from '../../filters/filters';
+import Toast from '../../components/toast/index';
 export default {
     name: 'index',
     data() {
@@ -50,6 +51,9 @@ export default {
     methods: {
         toDetail(id){
             this.$router.push(`/detail/${id}`)
+        },
+        test(){
+            Toast.info('测试')
         }
     }
 }
