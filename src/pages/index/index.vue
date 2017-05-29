@@ -32,6 +32,7 @@
 import services from '../../api/services';
 import filters from '../../filters/filters';
 import Toast from '../../components/toast/index';
+import Dialog from '../../components/dialog/index';
 export default {
     name: 'index',
     data() {
@@ -53,7 +54,16 @@ export default {
             this.$router.push(`/detail/${id}`)
         },
         test(){
-            Toast.info('测试')
+            Dialog.open({
+                showText: true,
+                text: '<div style="color: red">测试将</div>',
+                confirmCallback: function(){
+                    console.log('确定');
+                },
+                cancelCallback: function(){
+                    console.log('取消');
+                }
+            });
         }
     }
 }

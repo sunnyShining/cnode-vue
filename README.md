@@ -57,7 +57,7 @@ topics(options = {}){
 
 **组件**
 
-需要的公共组件放在./src/components
+需要的公共组件放在./src/components，里面有loading，toast组件例子
 
 **过滤器**
 
