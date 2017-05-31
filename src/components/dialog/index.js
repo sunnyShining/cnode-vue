@@ -1,4 +1,1 @@
-import index from './src/index';
-export default {
-	...index
-}
+export { default } from './src/index';
