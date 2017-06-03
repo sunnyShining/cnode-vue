@@ -14,7 +14,7 @@ module.exports = {
         zipName: 'cnode_vue',
         folderName: 'cnode_vue',
         assetsSubDirectory: 'static',
-        assetsPublicPath: '/',
+        assetsPublicPath: '/cnode/',
         productionSourceMap: false,
         productionGzip: false,
         productionGzipExtensions: ['js', 'css'],
