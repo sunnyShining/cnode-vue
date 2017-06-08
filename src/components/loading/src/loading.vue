@@ -1,11 +1,14 @@
 <template>
     <div class="loading" v-show="visible">
-    	<div class="loading-container">
-	        <div>
-	        	<img src="../../../assets/images/loading.svg">
+	    <div class="loading-mask">
+	    	<div class="loading-outter">
+		    	<div class="loading-wrap">
+		    		<div class="loading-ring"></div>
+		    	</div>
+	    		<div class="loading-rect"></div>
+	    		<div class="loading-text">{{ text }}</div>
 	    	</div>
-	        <div class="loading-text">{{ text }}</div>
-        </div>
+	    </div>
     </div>
 </template>
 <script>
@@ -28,33 +31,75 @@ export default {
 </script>
 <style lang="scss" scoped>
 	.loading{
+		transition: opacity .3s linear;
 		width: 100%;
 		height: 100%;
-		background-color: #000;
-		opacity: 0.7;
-		position: absolute;
+		position: fixed;
+		display: block;
+		text-align: center;
 		top: 0;
-		left:0;
-		z-index: 99;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		background-color: transparent;//背景透明
+		z-index: 9999;
+		&:after{
+			content: "";
+			display: inline-block;
+		}
 	}
-	.loading-container{
-		display: flex;
-		justify-content: space-around;
-		position: absolute;
-		z-index: 999;
-		background-color: #fff;
-		opacity: 1;
-		width: 2.5rem;
-		height: .7rem;
-		border-radius: .35rem;
+	.loading-mask{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, .2);
 	}
-	.loading-text{
-		line-height: .7rem;
-		font-size: .32rem;
-		color: #000;
-		white-space: nowrap;
-	}
+.loading-outter {
+    position: relative;
+    top: 50%;
+    margin-top: -0.35rem;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #222;
+    border-radius: .5rem;
+    height: .75rem;
+}
+.loading-wrap {
+    position: absolute;
+    width: .56rem;
+    height: .56rem;
+    top: .094rem;
+    left: .09rem
+}
+.loading-ring {
+    width: .56rem;
+    height: .56rem;
+    background-image: url("../../../assets/images/loading.svg");
+    background-size: cover;
+    position: absolute;
+}
+.loading-rect {
+    height: .18rem;
+    width: .18rem;
+    background-color: #FD404A;
+    border-radius: .05rem;
+    -webkit-transform: rotate3D(0, 0, 1, 45deg);
+    position: absolute;
+    left: .28rem;
+    top: .28rem;
+}
+
+.loading-text {
+    text-align: left;
+    color: #fff;
+    font-size: .24rem;
+    font-family: sans-serif;
+    line-height: .75rem;
+    padding-left: .85rem;
+    padding-right: .26rem;
+}
+
+.loading-enter,
+.loading-leave-active {
+    opacity: 0;
+}
 </style>
