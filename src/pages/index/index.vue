@@ -17,6 +17,7 @@
                 <div class="article-dis dis-share" v-else-if="article.tab =='share'">分享</div>
                 <div class="article-dis dis-share" v-else-if="article.tab =='ask'">问答</div>
                 <div class="article-dis dis-share" v-else-if="article.tab =='job'">招聘</div>
+                <div class="article-dis dis-share" v-else>其他</div>
                 <div class="article-title">
                     <p>
                         {{ article.title }}

@@ -3,7 +3,13 @@
         <div class="article-container">
             <div class="article-information">
                 <div class="article-title">
-                    <span class="article-dis">置顶</span>{{ articleData.title }}
+                    <span class="article-dis" v-if="articleData.top">置顶</span>
+                    <span class="article-dis" v-else-if="articleData.good">精华</span>
+                    <span class="article-dis dis-share" v-else-if="articleData.tab =='share'">分享</span>
+                    <span class="article-dis dis-share" v-else-if="articleData.tab =='ask'">问答</span>
+                    <span class="article-dis dis-share" v-else-if="articleData.tab =='job'">招聘</span>
+                    <span class="article-dis dis-share" v-else>其他</span>
+                    {{ articleData.title }}
                 </div>
                 <div class="article-info">
                     <span> 发布于{{ articleData.create_at | fromNow }}</span>
@@ -108,6 +114,10 @@ export default {
         border-radius: 4px;
         color: #fff;
         background-color: #80bd01;
+    }
+    .dis-share{
+        background-color: #e5e5e5;
+        color: #999;
     }
     .article-info{
         font-size: 12px;
