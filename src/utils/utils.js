@@ -34,6 +34,7 @@ export default {
                         cb(res.data)
                     } else {
                         // console.log(res);
+                      Loading.close();
                     }
                 }).catch((err) => {
                     // console.log(err)
@@ -43,8 +44,7 @@ export default {
                         ...options.qs
                     },{
                         headers: options.headers
-                    }
-                    ).then((res) => {
+                    }).then((res) => {
                         if (res.status == 200) {
                             cb(res.data);
                         } else {
@@ -53,6 +53,7 @@ export default {
                     })
                     .catch((err) => {
                         // console.log(err);
+                        Loading.close();
                     })
             }
         }
