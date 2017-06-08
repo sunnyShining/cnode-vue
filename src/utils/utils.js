@@ -34,10 +34,10 @@ export default {
                         cb(res.data)
                     } else {
                         // console.log(res);
-                      Loading.close();
                     }
                 }).catch((err) => {
                     // console.log(err)
+                    Loading.close();
                 })
             } else if (options.method === 'POST' || options.method === 'post') {
                 axios.post(options.url, {
