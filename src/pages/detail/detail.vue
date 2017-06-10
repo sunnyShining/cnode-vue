@@ -46,40 +46,43 @@
 </template>
 <script>
 import services from '../../api/services';
-import filters from '../../filters/filters'
+import filters from '../../filters/filters';
 export default {
     name: 'feed',
-    data() {
+    data () {
         return {
             articleData: {},
             author: {},
             id: ''
-        }
+        };
     },
     filters: {
         ...filters
     },
-    created(){
-        let id  = this.$route.params.id;
+    created () {
+        let id = this.$route.params.id;
         services.detail({
-            id,
+            id
         }).then((data) => {
             this.articleData = data.data;
-            this.author = data.data.author;//初始化时vue可能打出警告
-        })
-
+            this.author = data.data.author; // 初始化时vue可能打出警告
+        }, (error) => {
+            console.log(error);
+        });
     },
     methods: {
-        //无cnode接口文档，这句报错
-        ups(id){
+        // 无cnode接口文档，这句报错
+        ups (id) {
             services.up({
-                id,
+                id
             }).then((data) => {
-                console.log(data)
-            })
+                console.log(data);
+            }, (error) => {
+                console.log(error);
+            });
         }
     }
-}
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>

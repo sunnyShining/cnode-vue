@@ -7,55 +7,54 @@
 import axios from 'axios';
 import Loading from '../components/loading/index';
 
-//响应拦截（一般拦截登录，还有loading等）
-axios.interceptors.response.use(function(response) {
+// 响应拦截（一般拦截登录，还有loading等）
+axios.interceptors.response.use(function (response) {
     // Do something with response data
     Loading.close();
     return response;
-}, function(error) {
-    // Do something with response error 
+}, function (error) {
+    // Do something with response error
     return Promise.reject(error);
 });
 
 export default {
 
     http: {
-        request(options, cb) {
+        request (options, cb) {
             Loading.open();
             if (!options.headers) {
-                options.headers = {}
+                options.headers = {};
             }
             if (options.method === 'GET' || options.method === 'get') {
                 axios.get(options.url, {
                     params: options.qs,
                     headers: options.headers
                 }).then((res) => {
-                    if (res.status == 200) {
-                        cb(res.data)
+                    if (res.status === 200) {
+                        cb(res.data);
                     } else {
                         // console.log(res);
                     }
                 }).catch((err) => {
-                    // console.log(err)
+                    console.log(err);
                     Loading.close();
-                })
+                });
             } else if (options.method === 'POST' || options.method === 'post') {
                 axios.post(options.url, {
-                        ...options.qs
-                    },{
-                        headers: options.headers
-                    }).then((res) => {
-                        if (res.status == 200) {
-                            cb(res.data);
-                        } else {
-                            // console.log(res);
-                        }
-                    })
-                    .catch((err) => {
-                        // console.log(err);
-                        Loading.close();
-                    })
+                    ...options.qs
+                }, {
+                    headers: options.headers
+                }).then((res) => {
+                    if (res.status === 200) {
+                        cb(res.data);
+                    } else {
+                        // console.log(res);
+                    }
+                }).catch((err) => {
+                    console.log(err);
+                    Loading.close();
+                });
             }
         }
     }
-}
+};

@@ -7,18 +7,20 @@
 import service from '../../api/services';
 export default {
     name: 'getstart',
-    data() {
+    data () {
         return {
             msg: 'getstart'
-        }
+        };
     },
-    created(){
+    created () {
         console.log(ENV);
         service.topics().then((data) => {
             console.log(data);
-        })
+        }, (error) => {
+            console.log(error);
+        });
     }
-}
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>

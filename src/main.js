@@ -3,14 +3,16 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
-import flexible from 'flexible';//引入flexible.js
-
+/* eslint-disable */
+import flexible from 'flexible'; // 引入flexible.js
+/* eslint-enable */
 Vue.config.productionTip = false;
 
-/* eslint-disable no-new */
+/* eslint-disable */
 new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
-})
+	el: '#app',
+	router,
+	template: '<App/>',
+	components: { App }
+});
+/* eslint-enable */

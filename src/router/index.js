@@ -17,37 +17,37 @@ export default new Router({
         name: 'home',
         component: Home,
         children: [
-        	{
-        		path: '/index',
-        		name: 'index',
-        		component: Index
-        	},{
+            {
+                path: '/index',
+                name: 'index',
+                component: Index
+            }, {
                 path: '/about',
                 name: 'about',
                 component: About
-            },{
+            }, {
                 path: '/Api',
                 name: 'api',
                 component: Api
-            },{
+            }, {
                 path: '/getStart',
                 name: 'getStart',
                 component: GetStart
-            },{
+            }, {
                 path: '/register',
                 name: 'register',
                 component: Register
-            },{
+            }, {
                 path: '/signin',
                 name: 'signin',
                 component: Signin
-            },{
+            }, {
                 path: '/detail/:id',
                 name: 'detail',
                 component: Detail
             }
         ]
-    },{
+    }, {
         path: '/', redirect: {name: '/index'}
     }]
-})
+});

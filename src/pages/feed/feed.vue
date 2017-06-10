@@ -16,6 +16,8 @@ export default {
         console.log(ENV);
         service.topics().then((data) => {
             console.log(data);
+        }, (error) => {
+            
         })
     }
 }

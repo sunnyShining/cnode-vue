@@ -19,15 +19,15 @@ export default {
             default: ''
         }
     },
-    data() {
+    data () {
         return {
-        	visible: true
-        }
+            visible: true
+        };
     },
-    created() {
+    created () {
 
     }
-}
+};
 </script>
 <style lang="scss" scoped>
 	.loading{

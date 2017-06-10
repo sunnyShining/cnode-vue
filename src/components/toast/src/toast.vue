@@ -4,26 +4,26 @@
 	</div>
 </template>
 <script>
-	export default {
-		props:{
-			text: {
-				type: String,
-				default: ''
-			},
-			visible: {
-				type: Boolean,
-				default: false
-			}
+export default {
+	props: {
+		text: {
+			type: String,
+			default: ''
 		},
-		data(){
-			return{
-
-			}
-		},
-		created(){
-
+		visible: {
+			type: Boolean,
+			default: false
 		}
+	},
+	data () {
+		return{
+
+		};
+	},
+	created () {
+
 	}
+};
 </script>
 <style lang="scss" scoped>
 	.toast-container{

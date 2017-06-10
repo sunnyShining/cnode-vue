@@ -3,7 +3,7 @@ import Toast from  './toast';
 let ToastC = Vue.extend(Toast);
 let instance
 export default {
-	info(text = ' '){
+	info (text = ' ') {
 		if(!instance){
 			instance = new ToastC({
 				el: document.createElement('div')
@@ -19,7 +19,7 @@ export default {
 			this._close()
 		}, 2000);
 	},
-	_close(){
+	_close () {
 		instance.visible = false;
 	}
 }

@@ -32,42 +32,44 @@
 <script>
 import services from '../../api/services';
 import filters from '../../filters/filters';
-import Toast from '../../components/toast/index';
+// import Toast from '../../components/toast/index';
 import Dialog from '../../components/dialog/index';
 export default {
     name: 'index',
-    data() {
+    data () {
         return {
             msg: 'Index',
             articles: []
-        }
+        };
     },
-    created(){
+    created () {
         services.topics().then((data) => {
             this.articles = data.data;
-        })
+        }, (error) => {
+            console.log(error);
+        });
     },
     filters: {
         ...filters
     },
     methods: {
-        toDetail(id){
-            this.$router.push(`/detail/${id}`)
+        toDetail (id) {
+            this.$router.push(`/detail/${id}`);
         },
-        test(){
+        test () {
             Dialog.open({
                 showText: true,
                 text: '<div style="color: red">测试将</div>',
-                confirmCallback: function(){
+                confirmCallback: function () {
                     console.log('确定');
                 },
-                cancelCallback: function(){
+                cancelCallback: function () {
                     console.log('取消');
                 }
             });
         }
     }
-}
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>

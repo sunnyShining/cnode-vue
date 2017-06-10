@@ -33,14 +33,14 @@
 </template>
 <script>
 export default{
-	props: {
+    props: {
         title: {
-          type: String,
-          default: '温馨提示'
+            type: String,
+            default: '温馨提示'
         },
         message: {
-          type: String,
-          default: ''
+            type: String,
+            default: ''
         },
         confirmButtonText: {
             type: String,
@@ -59,29 +59,29 @@ export default{
             default: ''
         }
     },
-	data() {
-  		return {
-  			visible: false,
+    data () {
+        return {
+            visible: false,
             showOneBtn: false,
             showTitle: true,
             showInput: false,
             useText: false,
             activeBtn: false,
             showInputTestError: false
-  		}
-	},
-	methods: {
-        cancel(){
-            if(this.showInput){
+        };
+    },
+    methods: {
+        cancel () {
+            if (this.showInput) {
                 this.activeBtn = false;
             }
             this.visible = false;
             this.cancelButtonCallback();
         },
-        confirm() {
-            if(this.showInput){
-                if(this.inputValue !== ''){
-                    if(!(this.inputTest.test(this.inputValue))){
+        confirm () {
+            if (this.showInput) {
+                if (this.inputValue !== '') {
+                    if (!(this.inputTest.test(this.inputValue))) {
                         this.showInputTestError = true;
                         return;
                     }
@@ -89,28 +89,28 @@ export default{
                     this.activeBtn = false;
                     this.confirmButtonCallback(this.inputValue);
                 }
-            }else{
+            } else {
                 this.visible = false;
                 this.confirmButtonCallback();
             }
         },
-        oneBtn() {
+        oneBtn () {
             this.visible = false;
             this.oneBtnCallback();
         },
-        changeBtnColor(){
+        changeBtnColor () {
             this.showInputTestError = false;
-            if(this.inputValue !== ''){
+            if (this.inputValue !== '') {
                 this.activeBtn = true;
-            }else{
+            } else {
                 this.activeBtn = false;
             }
         }
-	},
-}
+    }
+};
 </script>
 <style lang="scss" scoped>
-	.dialog-mask {
+.dialog-mask {
     position: fixed;
     z-index: 9998;
     top: 0;
