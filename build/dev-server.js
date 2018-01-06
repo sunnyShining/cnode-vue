@@ -5,7 +5,7 @@ if (!process.env.NODE_ENV) {
     process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
 }
 
-const opn = require('opn')
+// const opn = require('opn')
 const path = require('path')
 const express = require('express')
 const webpack = require('webpack')
@@ -17,6 +17,7 @@ const devlopmentUrl = config.dev.devlopmentUrl
 const app = express()
 const mount = express()
 const compiler = webpack(webpackConfig)
+const openBrowser = require('./openBrowser')
 
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
     publicPath: webpackConfig.output.publicPath,
@@ -65,7 +66,7 @@ devMiddleware.waitUntilValid(() => {
     console.log('> Listening at ' + uri + '\n')
         // when env is testing, don't need open it
     if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
-        opn(uri)
+        openBrowser(uri)
     }
     _resolve()
 })
