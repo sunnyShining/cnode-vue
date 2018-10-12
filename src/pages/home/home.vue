@@ -2,7 +2,7 @@
     <div class="home">
         <div class="home-container">
             <div class="home-logo">
-                <img src="https://o4j806krb.qnssl.com/public/images/cnodejs_light.svg" width="100%">
+                <img src="//static2.cnodejs.org/public/images/cnodejs_light.svg" width="100%">
             </div>
             <div class="home-input">
                 <input type="search" autocomplete="off" name="">

@@ -87,4 +87,4 @@ http://router.vuejs.org/zh-cn/index.html
 ![详情](static/detail.png)
 
 ## 线上地址
-https://still-bayou-37837.herokuapp.com/cnode/index.html#/index
+https://sunnyshining.herokuapp.com/cnode/index.html#/index
